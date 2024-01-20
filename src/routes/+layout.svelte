@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../app.css"
+    import '../app.css'
 </script>
 
 <div data-theme="skeleton" class="dark">
