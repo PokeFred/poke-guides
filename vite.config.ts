@@ -1,6 +1,6 @@
 import { sveltekit } from "@sveltejs/kit/vite"
 import { defineConfig } from "vite"
-import type { CommonServerOptions } from "vite
+import type { CommonServerOptions } from "vite"
 
 const serverConfig: CommonServerOptions = {
     host: "0.0.0.0",
