@@ -2,4 +2,6 @@
     import "../app.css"
 </script>
 
-<slot />
+<div data-theme="skeleton" class="dark">
+    <slot />
+</div>
