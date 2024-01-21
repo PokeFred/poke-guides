@@ -2,9 +2,9 @@
     import { goto } from "$app/navigation"
     import { page } from "$app/stores"
     import { isSidebarOpen } from "$stores"
-    import type { SidebarLink } from "$utils"
+    import type { ArticleLink } from "$utils"
 
-    export let links: SidebarLink[]
+    export let links: ArticleLink[]
 
     function isActiveButton(elementPathname: string): boolean {
         return elementPathname === $page.url.pathname

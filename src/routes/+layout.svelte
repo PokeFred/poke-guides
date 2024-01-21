@@ -11,6 +11,7 @@
     import Sidebar from "$components/sidebar.svelte"
     import PageTransition from "$components/pageTransition.svelte"
     import { selectedTheme, isDarkMode } from "$stores"
+    import type { ArticleLink } from '$utils'
 
     async function loadHighlights(): Promise<void> {
         hljs.registerLanguage('javascript', (await import('highlight.js/lib/languages/javascript')).default)
@@ -33,6 +34,21 @@
     })
 
     export let data: LayoutServerData | null
+
+    const sidebarLinks: ArticleLink[] = [
+        {
+            name: "Home",
+            pathname: "/"
+        },
+        {
+            name: "Svelte 01",
+            pathname: "/articles/svelte-01"
+        },
+        {
+            name: "Svelte 02",
+            pathname: "/articles/svelte-02"
+        }
+    ]
 </script>
 
 <div data-theme="{$selectedTheme}" class="{($isDarkMode) ? 'dark' : 'light'}">
@@ -45,7 +61,7 @@
     <div class="w-screen h-screen text-surface-200 bg-surface-900">
         <AppShell>
             <!-- Sidebar -->
-            <Sidebar slot="sidebarLeft" links={data?.links} />
+            <Sidebar slot="sidebarLeft" links={sidebarLinks} />
 
             <!-- Header -->
             <Header slot="pageHeader" />

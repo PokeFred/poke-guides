@@ -1,7 +1,8 @@
 import type { LayoutServerLoad } from "./$types"
-import type { SidebarLink } from "$utils"
+import db from "$server/db"
+import type { ArticleLink } from "$utils"
 
-function getSidebarLinks(): SidebarLink[] {
+function getSidebarLinks(): ArticleLink[] {
     return [
         {
             name: "Page 1",
@@ -18,7 +19,9 @@ function getSidebarLinks(): SidebarLink[] {
     ]
 }
 
-export const load: LayoutServerLoad = () => {
+export const load: LayoutServerLoad = async () => {
+    db.prepare("SELECT * FROM article").all()
+
     return {
         links: getSidebarLinks()
     }
