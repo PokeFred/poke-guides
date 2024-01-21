@@ -8,21 +8,24 @@
     import type { DrawerStore } from "@skeletonlabs/skeleton"
     import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom'
     import hljs from 'highlight.js/lib/core'
+    import html from 'highlight.js/lib/languages/xml' // for HTML
+    import css from 'highlight.js/lib/languages/css'
+    import javascript from 'highlight.js/lib/languages/javascript'
+    import typescript from 'highlight.js/lib/languages/typescript'
+    import json from 'highlight.js/lib/languages/json'
     import Header from "$components/header.svelte"
     import Sidebar from "$components/sidebar.svelte"
     import PageTransition from "$components/pageTransition.svelte"
     import { selectedTheme, isDarkMode } from "$stores"
 
-    async function loadHighlights(): Promise<void> {
-        hljs.registerLanguage('javascript', (await import('highlight.js/lib/languages/javascript')).default)
-        hljs.registerLanguage('typescript', (await import('highlight.js/lib/languages/typescript')).default)
-        hljs.registerLanguage('json', (await import('highlight.js/lib/languages/json')).default)
-    }
-
     initializeStores()
     const drawerStore: DrawerStore = getDrawerStore()
     storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow })
-    loadHighlights()
+    hljs.registerLanguage('html', html)
+    hljs.registerLanguage('css', css)
+    hljs.registerLanguage('javascript', javascript)
+    hljs.registerLanguage('typescript', typescript)
+    hljs.registerLanguage('json', json)
     storeHighlightJs.set(hljs)
 
     afterNavigate((event: AfterNavigate): void => {
