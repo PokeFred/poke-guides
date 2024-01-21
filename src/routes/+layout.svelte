@@ -4,14 +4,14 @@
     import type { LayoutServerData } from "./$types"
     import { afterNavigate } from "$app/navigation"
     import type { AfterNavigate } from "@sveltejs/kit"
-    import { initializeStores, Drawer, Modal, Toast, storePopup, storeHighlightJs, AppShell } from '@skeletonlabs/skeleton'
+    import { initializeStores, Drawer, getDrawerStore, Modal, Toast, storePopup, storeHighlightJs, AppShell } from '@skeletonlabs/skeleton'
+    import type { DrawerStore } from "@skeletonlabs/skeleton"
     import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom'
     import hljs from 'highlight.js/lib/core'
     import Header from "$components/header.svelte"
     import Sidebar from "$components/sidebar.svelte"
     import PageTransition from "$components/pageTransition.svelte"
     import { selectedTheme, isDarkMode } from "$stores"
-    import type { ArticleLink } from '$utils'
 
     async function loadHighlights(): Promise<void> {
         hljs.registerLanguage('javascript', (await import('highlight.js/lib/languages/javascript')).default)
@@ -20,6 +20,7 @@
     }
 
     initializeStores()
+    const drawerStore: DrawerStore = getDrawerStore()
     storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow })
     loadHighlights()
     storeHighlightJs.set(hljs)
@@ -28,40 +29,39 @@
         const isNewPage: boolean = event.from?.route.id !== event.to?.route.id
         const elementPage: Element | null = document.querySelector("#page")
 
-        if (isNewPage && (elementPage !== null)) {
-            elementPage.scrollTop = 0
+        if (isNewPage) {
+            if ($drawerStore.id === "sidebar-drawer") {
+                drawerStore.close()
+            }
+            if (elementPage !== null) {
+                elementPage.scrollTop = 0
+            }
         }
     })
 
     export let data: LayoutServerData | null
-
-    const sidebarLinks: ArticleLink[] = [
-        {
-            name: "Home",
-            pathname: "/"
-        },
-        {
-            name: "Svelte 01",
-            pathname: "/articles/svelte-01"
-        },
-        {
-            name: "Svelte 02",
-            pathname: "/articles/svelte-02"
-        }
-    ]
 </script>
 
-<div data-theme="{$selectedTheme}" class="{($isDarkMode) ? 'dark' : 'light'}">
+<div data-theme="{$selectedTheme}" class="{($isDarkMode) ? 'dark' : 'light'} text-surface-200 bg-surface-900">
     <!-- Skeleton Utility initializes -->
-    <Drawer />
+    <Drawer>
+        {#if $drawerStore.id === "sidebar-drawer"}
+            <div class="p-4">
+                <Sidebar />
+            </div>
+        {/if}
+    </Drawer>
     <Modal />
     <Toast />
 
     <!-- the actual page -->
-    <div class="w-screen h-screen text-surface-200 bg-surface-900">
+    <div class="w-screen h-screen">
         <AppShell>
             <!-- Sidebar -->
-            <Sidebar slot="sidebarLeft" links={sidebarLinks} />
+            <div slot="sidebarLeft" class="w-0 lg:w-64 h-full bg-surface-800">
+                <div class="w-full h-12"></div>
+                <Sidebar />
+            </div>
 
             <!-- Header -->
             <Header slot="pageHeader" />

@@ -4,18 +4,28 @@
     import { isSidebarOpen } from "$stores"
     import type { ArticleLink } from "$utils"
 
-    export let links: ArticleLink[]
+    const sidebarLinks: ArticleLink[] = [
+        {
+            name: "Home",
+            pathname: "/"
+        },
+        {
+            name: "Svelte 01",
+            pathname: "/articles/svelte-01"
+        },
+        {
+            name: "Svelte 02",
+            pathname: "/articles/svelte-02"
+        }
+    ]
 
     function isActiveButton(elementPathname: string): boolean {
         return elementPathname === $page.url.pathname
     }
 </script>
 
-<div class="{($isSidebarOpen) ? 'w-64' : 'w-0'} h-full bg-surface-800 transition-width duration-300">
-    <div class="w-full h-12"></div>
-    {#key $page.url}
-        {#each links as elememt}
-            <button on:click={() => goto(elememt.pathname)} class="w-full h-12 text-xl flex justify-start items-center cursor-pointer pl-4 hover:opacity-75 {isActiveButton(elememt.pathname) ? 'underline opacity-50 cursor-default' : ''}" disabled={isActiveButton(elememt.pathname)}>{elememt.name}</button>
-        {/each}
-    {/key}
-</div>
+{#key $page.url}
+    {#each sidebarLinks as elememt}
+        <button on:click={() => goto(elememt.pathname)} class="w-full h-12 text-xl flex justify-start items-center cursor-pointer pl-4 hover:opacity-75 {isActiveButton(elememt.pathname) ? 'underline opacity-50 cursor-default' : ''}" disabled={isActiveButton(elememt.pathname)}>{elememt.name}</button>
+    {/each}
+{/key}
