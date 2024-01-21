@@ -5,7 +5,11 @@ import { join as pathJoin } from 'path'
 export default {
     content: ['./src/app.html', './src/routes/**/*.svelte', './src/lib/components/**/*.svelte', pathJoin(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,svelte,js,ts}')],
     theme: {
-        extend: {},
+        extend: {
+            transitionProperty: {
+                "width": "width"
+            }
+        },
     },
     plugins: [
         skeleton({
