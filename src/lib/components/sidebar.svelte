@@ -11,11 +11,11 @@
         },
         {
             name: "Svelte 01",
-            pathname: "/articles/svelte-01"
+            pathname: "/articles/svelte-01-requirements-and-preface"
         },
         {
             name: "Svelte 02",
-            pathname: "/articles/svelte-02"
+            pathname: "/articles/svelte-02-how-to-setup-a-project"
         }
     ]
 
