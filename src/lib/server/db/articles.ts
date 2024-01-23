@@ -1,31 +1,31 @@
-import type { Database } from "better-sqlite3"
-import { existsSync, statSync, readdirSync } from "fs"
-import type { Stats } from "fs"
-import { join as pathJoin} from "path"
-import { getCacheFolderPath } from "./utils"
+import type { Database } from 'better-sqlite3'
+import { existsSync, statSync, readdirSync } from 'fs'
+import type { Stats } from 'fs'
+import { join as pathJoin } from 'path'
+import { getCacheFolderPath } from './utils'
 
-const RAW_ARTICLE_FOLDER_PATH: string = pathJoin(process.cwd(), "data", "articles")
-const ARTICLE_FOLDER_PATH: string = pathJoin(getCacheFolderPath(), "articles")
+const RAW_ARTICLE_FOLDER_PATH: string = pathJoin(process.cwd(), 'data', 'articles')
+const ARTICLE_FOLDER_PATH: string = pathJoin(getCacheFolderPath(), 'articles')
 
 export type Article = {
-    identifier: string,
-    name: string,
-    description: string,
-    categories: string[],
+    identifier: string
+    name: string
+    description: string
+    categories: string[]
     path: string
 }
 export type ArticleFilter = {
-    identifier: string,
+    identifier: string
     categories: string[]
 }
 
 export function getArticle(identifier: string): Article {
     return {
-        identifier: "",
-        name: "",
-        description: "",
+        identifier: '',
+        name: '',
+        description: '',
         categories: [],
-        path: ""
+        path: '',
     }
 }
 
@@ -34,7 +34,8 @@ export function getArticles(config?: ArticleFilter | undefined): Article[] {
 }
 
 export function setupArticles(db: Database) {
-    db.prepare(`
+    db.prepare(
+        `
         CREATE TABLE article (
             identifier char(255),
             name char(255),
@@ -42,9 +43,11 @@ export function setupArticles(db: Database) {
             -- add categories
             path char(255)
         )
-    `).run()
+    `,
+    ).run()
 
-    if (existsSync(RAW_ARTICLE_FOLDER_PATH)) {}
+    if (existsSync(RAW_ARTICLE_FOLDER_PATH)) {
+    }
 
-    console.log("T")
+    console.log('T')
 }

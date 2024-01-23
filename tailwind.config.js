@@ -7,8 +7,8 @@ export default {
     theme: {
         extend: {
             transitionProperty: {
-                "width": "width"
-            }
+                'width': 'width',
+            },
         },
     },
     plugins: [

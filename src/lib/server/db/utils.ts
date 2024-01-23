@@ -1,7 +1,7 @@
-import { existsSync, rmSync, mkdirSync } from "fs"
-import { join as pathJoin } from "path"
+import { existsSync, rmSync, mkdirSync } from 'fs'
+import { join as pathJoin } from 'path'
 
-const CACHE_FOLDER_PATH: string = pathJoin(process.cwd(), "cache")
+const CACHE_FOLDER_PATH: string = pathJoin(process.cwd(), 'cache')
 
 export function getCacheFolderPath(): string {
     return CACHE_FOLDER_PATH

@@ -1,4 +1,4 @@
 export type ArticleLink = {
-    name: string,
+    name: string
     pathname: string
 }
