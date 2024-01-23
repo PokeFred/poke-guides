@@ -1,8 +1,10 @@
 <script lang="ts">
     import CodeBlock from "$components/codeBlock.svelte"
+    import ArticelUnderConstructionWarning from "$components/articleUnderConstructionWarning.svelte"
 </script>
 
 <div class="mb-2 text-3xl text-center">Svelte 01 - Requirements and Preface</div>
+<ArticelUnderConstructionWarning />
 <div>Before we dive into SvelteKit development, make sure the following requirements are met:</div>
 <div>NodeJS: https://nodejs.org (min v18)</div>
 <div>npm: v7</div>
