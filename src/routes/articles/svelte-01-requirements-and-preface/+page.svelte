@@ -4,23 +4,9 @@
 
 <div class="mb-2 text-3xl text-center">Svelte 01 - Requirements and Preface</div>
 <div>Before we dive into SvelteKit development, make sure the following requirements are met:</div>
-<ol class="list">
-    <li>
-        <span>1.</span>
-        <span>T</span>
-    </li>
-    <li>
-        <span>2.</span>
-        <span>T</span>
-    </li>
-    <li>
-        <span>3.</span>
-        <span>T</span>
-    </li>
-</ol>
-
 <div>NodeJS: https://nodejs.org (min v18)</div>
 <div>npm: v7</div>
+<CodeBlock name="Terminal" language="shell" code={'$ node -v\nSample Output:\nv18.13.0\n\n$ npm -v\nSample Output:\n9.2.0'} />
 <div>VSCode: https://code.visualstudio.com/</div>
 <div>Optional VSCode Extension: Identifier: svelte.svelte-vscode</div>
 

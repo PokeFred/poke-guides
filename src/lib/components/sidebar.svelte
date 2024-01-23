@@ -1,7 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation"
     import { page } from "$app/stores"
-    import { isSidebarOpen } from "$stores"
     import type { ArticleLink } from "$utils"
 
     const sidebarLinks: ArticleLink[] = [
@@ -16,6 +15,10 @@
         {
             name: "Svelte 02",
             pathname: "/articles/svelte-02-how-to-setup-a-project"
+        },
+        {
+            name: "Svelte 03",
+            pathname: "/articles/svelte-03-customize-the-project"
         }
     ]
 

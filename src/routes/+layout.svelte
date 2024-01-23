@@ -13,6 +13,7 @@
     import javascript from 'highlight.js/lib/languages/javascript'
     import typescript from 'highlight.js/lib/languages/typescript'
     import json from 'highlight.js/lib/languages/json'
+    import shell from 'highlight.js/lib/languages/shell'
     import Header from "$components/header.svelte"
     import Sidebar from "$components/sidebar.svelte"
     import PageTransition from "$components/pageTransition.svelte"
@@ -26,6 +27,7 @@
     hljs.registerLanguage('javascript', javascript)
     hljs.registerLanguage('typescript', typescript)
     hljs.registerLanguage('json', json)
+    hljs.registerLanguage('shell', shell)
     storeHighlightJs.set(hljs)
 
     afterNavigate((event: AfterNavigate): void => {
