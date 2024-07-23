@@ -3,4 +3,6 @@
     import "@fontsource/nunito"
 </script>
 
-<slot />
+<custom-theming-element data-theme="skeleton" class="dark">
+    <slot />
+</custom-theming-element>
