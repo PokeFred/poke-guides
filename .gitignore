@@ -5,7 +5,7 @@
 # Folders
 node_modules/**
 .svelte-kit/**
-build/**
+.vercel/**
 
 # Files
 .env
