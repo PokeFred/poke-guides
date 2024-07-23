@@ -1,5 +1,3 @@
-<div>Just a sample text.</div>
-
 <!--
 <div class="text-3xl text-center">TTT</div>
 <div class="my-2 text-xl text-center">Error Handling</div>
