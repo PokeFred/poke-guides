@@ -1,3 +1,6 @@
+<div>Just a sample text.</div>
+
+<!--
 <div class="text-3xl text-center">TTT</div>
 <div class="my-2 text-xl text-center">Error Handling</div>
 <div class="card my-2 border border-surface-300-600-token">
@@ -75,6 +78,7 @@
         @apply ml-8 text-base;
     }
 </style>
+-->
 
 <!--
 <script lang="ts">

@@ -30,7 +30,7 @@
             <div class="w-full text-center">This Page is currently under construction.</div>
         </div>
         <div class="mx-auto my-4 w-full max-w-4xl h-auto bg-surface-100-800-token rounded-xl p-4">
-            <div>Just a sample text.</div>
+            <slot />
         </div>
         <div class="mb-4 text-right pr-4">&copy; 2024 by PokeFred. All rights reserved.</div>
     </div>
