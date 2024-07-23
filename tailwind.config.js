@@ -19,7 +19,7 @@ export default {
         import("@tailwindcss/forms"),
         skeleton({
             themes: {
-                preset: ["skeleton"]
+                preset: ["skeleton", "wintry", "modern", "gold-nouveau"]
             }
         })
     ]
