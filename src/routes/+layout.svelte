@@ -9,6 +9,8 @@
     import { theme } from "$stores/theme"
     import { storeHighlightJs } from "@skeletonlabs/skeleton"
     import hljs from "highlight.js/lib/core"
+    import Icon from "svelte-awesome"
+    import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub"
 
     onMount(async (): Promise<void> => {
         hljs.registerLanguage("html", (await import("highlight.js/lib/languages/xml")).default)
@@ -49,6 +51,11 @@
         <div class="mx-auto my-4 w-full max-w-4xl h-auto bg-surface-100-800-token rounded-xl p-4">
             <slot />
         </div>
-        <div class="mb-4 text-right pr-4">&copy; 2024 by PokeFred. All rights reserved.</div>
+        <div class="mb-4 flex justify-between items-center px-6">
+            <div>
+                <a href="https://github.com/PokeFred/poke-guides" target="_blank"><Icon data={faGithub} class="w-8 h-8" /></a>
+            </div>
+            <div>&copy; 2024 by PokeFred. All rights reserved.</div>
+        </div>
     </div>
 </custom-theming-element>
